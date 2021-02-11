@@ -1,0 +1,123 @@
+:root {
+  --bg: #FCFCFC;
+  --bg-panel: #EBEBEB;
+  --color-headings: #0077FF;
+  --color-text: #333333;
+
+  --bg-dark: #333333;
+  --bg-panel-dark: #434343;
+  --color-headings-dark: #3664FF;
+  --color-text-dark: #B5B5B5;
+}
+
+/*===== GENERAL =====*/
+
+html {
+  height: 100%;
+  font-family: sans-serif;
+
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+body {
+  background-color: var(--bg);
+}
+
+/*===== MAIN =====*/
+
+main {
+  background-color: var(--bg-panel);
+
+  margin: 5em;
+  padding: 5em;
+
+  border-radius: 15px;
+
+  display: grid;
+  grid-template-columns: 80% auto;
+  grid-template-rows: auto auto;
+  grid-template-areas: 
+  "title switch"
+  "content content";
+}
+
+h1 {
+  margin: 0;
+  color: var(--color-headings);
+  grid-area: title;
+}
+
+p {
+  color: var(--color-text);
+  grid-area: content;
+  font-size: 1.1em;
+  line-height: 1.8em;
+  margin-top: 2em;
+}
+
+/*===== BUTTON CHANGE THEME =====*/
+
+#change-theme {
+  grid-area: switch;
+}
+
+#change-theme #checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+#change-theme #checkbox:checked + label #ball {
+  transform: translateX(24px);
+}
+
+#change-theme #checkbox:checked + label {
+  background-color: var(--color-headings);
+  transition: background-color 200ms;
+}
+
+#change-theme label {
+  width: 50px;
+  height: 26px;
+
+  background-color: grey;
+  border-radius: 50px;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#change-theme #ball {
+  width: 22px;
+  height: 22px;
+
+  background-color: #F0F0F7;
+  border-radius: 50%;
+
+  position: absolute;
+  top: 2px;
+  left: 2px;
+
+  transition: transform 0.2s linear;
+}
+
+/*===== DARK THEME CLASS =====*/
+
+.theme-dark {
+  background-color: var(--bg-dark);
+}
+
+.theme-dark main {
+  background-color: var(--bg-panel-dark);
+}
+
+.theme-dark h1 {
+  color: var(--color-headings-dark);
+}
+
+.theme-dark p {
+  color: var(--color-text-dark);
+}
